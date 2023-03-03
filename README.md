@@ -5,24 +5,85 @@ Rest API developed for the Globant challenge
 ## - CREATE 
 Create Bigquerytables with the endpoint createTables, method = 'GET'
 
-    /createTable/departments
-    /createTable/jobs
-    /createTable/hired_employees
-Expect a Json response when the table is created
-
-    {
-       "Message": "Table created successfully",
-       "Table": "departments"
-    }
+    /createTable/departments/
+    /createTable/jobs/
+    /createTable/hired_employees/
      
-INSERT the tables from CSV format with the endpoint createTables, method = 'POST'
+## - INSERT FROM CSV
+INSERT the tables from CSV format , method = 'POST'
 
-    /insertFromCsv
+    /insertFromCsv/
+     
+As an input, send a json with the NAME OF THE TABLE YOU HAVE CREATED to insert and the csv path where the file is located
+Example:
+
+    {
+       "table": "departments",
+       "pathCsv": "https://raw.githubusercontent.com/DavidWill1496/GlobantChallenges/master/departments.csv"
+    }
+    
+The names of the files will be: departments.csv, jobs.csv and hired_employees.csv and they are located in Github in the path:
+
+    https://raw.githubusercontent.com/DavidWill1496/GlobantChallenges/master/
+
+All the registers that don't fulfill the requirements (Nulls or Empty) will not be inserted but will be printed on console
+
+## - INSERT FROM JSON
+Insert single registers from a json for each table, method = 'POST'
+
+To insert a new department
+
+    Go to: /insertRow/departments/
+    
+    And fill the json like this:
     
     {
+       "id": 1,
+       "department": "Product Management"
+    }
     
-Using POST method - 
+To insert a new job:
 
-    curl http://127.0.0.1:5000 -d "q='Text String to check Sentiment.'"
+    Go to: /insertRow/jobs/
     
-or use in a web based form and send POST request.
+    Json:
+    {
+       "id": 182,
+       "job": "Administrative Assistant IV"
+    }
+
+To insert a new hired_employee:
+
+    Go to: /insertRow/hired_employees/
+    
+    Json:
+    {
+        "id":2023,
+        "name":"David Galvis",
+        "datetime":"2023-04-03T08:00:00Z",
+        "department_id":5,
+        "job_id":94
+    }
+    
+## MAKE A QUERY
+To make a query, first go to the table you want to query , method = 'POST'
+
+    /queryTable/departments/
+    /queryTable/jobs/
+    /queryTable/hired_employees/
+    
+And the, send a JSON only with the 'id' you want to search
+
+    {
+        "id":1234
+    }
+    
+And you will receive the information in a JSON like this:
+
+    {
+        "datetime": "2021-03-18 21:54:34",
+        "department_id": 2,
+        "id": 1234,
+        "job_id": 147,
+        "name": "Allys D'Enrico"
+}
