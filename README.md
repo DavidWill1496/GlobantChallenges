@@ -171,16 +171,25 @@ For example:
         "From table": "departments"
     }
 
-## CHALLENGE #2 Requirement 1
-Process the 1st requirement of the Challenge 2, method = 'GET'
+## CHALLENGE #2
+To show the output tables requirement for this Challenge, a google Collab script was created:
+Log in with your Google account to request from the API and show the table
+
+    https://colab.research.google.com/drive/1wTmAbuBSMp1Bt7OV3Cz2SRT-EBNAk8po?usp=sharing
+
+Requirement 1
 
     /Challenge2/Requirement1
-        
-You will receive a HTML showing the table
 
-## CHALLENGE #2 Requirement 2
-Process the 2nd requirement of the Challenge 2, method = 'GET'
+![](./requirementone.png)
+<br/><br/>
+
+Requirement 2
 
     /Challenge2/Requirement2
         
-You will receive a HTML showing the table
+![](./requirementtwo.png)
+
+
+        
+
