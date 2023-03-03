@@ -1,5 +1,4 @@
 import pandas as pd
-import pandas_gbq
 import webbrowser
 
 from flask import Flask, jsonify, request
