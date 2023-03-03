@@ -1,5 +1,7 @@
 # GlobantChallenges
-Rest API developed for the Globant challenge
+Rest API developed for the Globant challenge, use every endpoint after the following URL
+
+    https://api-rest-globant-cdxvks5gpq-rj.a.run.app
 
 ## Usage
 ## - CREATE 
