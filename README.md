@@ -93,9 +93,9 @@ And you will receive the information in a JSON like this:
 ## CREATE A BACKUP TABLE IN AVRO FORMAT
 To create a backup in .avro format in Google Cloud Storage, method = 'GET'
 
-        /createBackup/departments
-        /createBackup/jobs
-        /createBackup/hired_employees
+    /createBackup/departments
+    /createBackup/jobs
+    /createBackup/hired_employees
         
 You will receive a JSON response indicating when it's done, the name of the table and the path of the .avro file
 
@@ -110,9 +110,9 @@ For example:
 ## RESTORE A TABLE FROM BACKUP
 To restore a table from the latest backup in Google Storage, use the following endpoints: , method = 'GET'
 
-        /restoreFromBackup/departments
-        /restoreFromBackup/jobs
-        /restoreFromBackup/hired_employees
+    /restoreFromBackup/departments
+    /restoreFromBackup/jobs
+    /restoreFromBackup/hired_employees
         
 You will receive a JSON response indicating when it's done, the name of the table and the path from where the backup was taken
 
@@ -127,9 +127,9 @@ For example:
 ## DELETE ROW FROM A TABLE
 To delete a single row from a TABLE, method = 'DELETE'
 
-        /deleteRow/departments
-        /deleteRow/jobs
-        /deleteRow/hired_employees
+    /deleteRow/departments
+    /deleteRow/jobs
+    /deleteRow/hired_employees
         
 Then indicate the 'id' you want to delete from the table        
         
@@ -150,9 +150,9 @@ For example:
 ## DELETE A TABLE
 To truncate an entire table, method = 'DELETE'
 
-        /deleteTable/departments
-        /deleteTable/jobs
-        /deleteTable/hired_employees
+    /deleteTable/departments
+    /deleteTable/jobs
+    /deleteTable/hired_employees
         
 You will receive a JSON response indicating the data from the table has been deleted
 
