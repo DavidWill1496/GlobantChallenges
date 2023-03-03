@@ -83,7 +83,6 @@ def deleteTable(gettable):
 
 @app.route('/createBackup/<gettable>')
 def backup(gettable):
-    client = bigquery.Client(credentials=credentials, project=project_id)
     dataset_id = 'DataSet_Challenge'
     bucket_name = 'challenge-globant-bucket'
     try:
@@ -106,7 +105,6 @@ def backup(gettable):
 
 @app.route('/restoreFromBackup/<gettable>')
 def restore(gettable):
-    client = bigquery.Client(credentials=credentials, project=project_id)
     dataset_id = 'DataSet_Challenge'
     bucket_name = 'challenge-globant-bucket'
     try:
