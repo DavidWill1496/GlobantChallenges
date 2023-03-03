@@ -1,4 +1,4 @@
-# GlobantChallenges
+# Globant Challenges
 Rest API in Python developed for the Globant challenge, using GCP tools and Dockerfile for package deployment
 
 Use every endpoint after the following URL
