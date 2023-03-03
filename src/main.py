@@ -10,12 +10,8 @@ from pandasql import sqldf
 
 app = Flask(__name__)
 
-#key_path = "env/BigQuery/challengeglobant-7559939a117e.json"
 project_id = "challengeglobant"
 dataset = "DataSet_Challenge"
-#credentials = service_account.Credentials.from_service_account_file(
-#    key_path, scopes=["https://www.googleapis.com/auth/cloud-platform"],)
-#client = bigquery.Client(credentials=credentials, project=project_id)
 client = bigquery.Client()
 
 # Data rules for table departments
