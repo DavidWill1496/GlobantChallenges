@@ -5,14 +5,14 @@ Rest API developed for the Globant challenge
 ## - CREATE 
 Create Bigquerytables with the endpoint createTables, method = 'GET'
 
-    /createTable/departments/
-    /createTable/jobs/
-    /createTable/hired_employees/
+    /createTable/departments
+    /createTable/jobs
+    /createTable/hired_employees
      
 ## - INSERT FROM CSV FILE
 INSERT the tables from CSV format , method = 'POST'
 
-    /insertFromCsv/
+    /insertFromCsv
      
 As an input, send a json with the NAME OF THE TABLE YOU HAVE CREATED to insert and the csv path where the file is located
 Example:
@@ -31,9 +31,11 @@ All the registers that don't fulfill the requirements (Nulls or Empty) will not 
 ## - INSERT ROW FROM JSON
 Insert single registers from a json for each table, method = 'POST'
 
+IMPORTANT!! The data id and with suffix 'id' must be number (INTEGER) otherwise it can not be inserted
+
 To insert a new department
 
-    Go to: /insertRow/departments/
+    Go to: /insertRow/departments
     
     And fill the json like this:
     
@@ -44,7 +46,7 @@ To insert a new department
     
 To insert a new job:
 
-    Go to: /insertRow/jobs/
+    Go to: /insertRow/jobs
     
     Json:
     {
@@ -54,7 +56,7 @@ To insert a new job:
 
 To insert a new hired_employee:
 
-    Go to: /insertRow/hired_employees/
+    Go to: /insertRow/hired_employees
     
     Json:
     {
@@ -68,9 +70,9 @@ To insert a new hired_employee:
 ## MAKE A QUERY
 To make a query, first go to the table you want to query , method = 'POST'
 
-    /queryTable/departments/
-    /queryTable/jobs/
-    /queryTable/hired_employees/
+    /queryTable/departments
+    /queryTable/jobs
+    /queryTable/hired_employees
     
 And the, send a JSON only with the 'id' you want to search
 
@@ -91,9 +93,9 @@ And you will receive the information in a JSON like this:
 ## CREATE A BACKUP TABLE IN AVRO FORMAT
 To create a backup in .avro format in Google Cloud Storage, method = 'GET'
 
-        /createBackup/departments/
-        /createBackup/jobs/
-        /createBackup/hired_employees/
+        /createBackup/departments
+        /createBackup/jobs
+        /createBackup/hired_employees
         
 You will receive a JSON response indicating when it's done, the name of the table and the path of the .avro file
 
@@ -108,9 +110,9 @@ For example:
 ## RESTORE A TABLE FROM BACKUP
 To restore a table from the latest backup in Google Storage, use the following endpoints: , method = 'GET'
 
-        /restoreFromBackup/departments/
-        /restoreFromBackup/jobs/
-        /restoreFromBackup/hired_employees/
+        /restoreFromBackup/departments
+        /restoreFromBackup/jobs
+        /restoreFromBackup/hired_employees
         
 You will receive a JSON response indicating when it's done, the name of the table and the path from where the backup was taken
 
@@ -120,4 +122,43 @@ For example:
         "Message": "Table restored from the backup",
         "Table": "departments",
         "Restored from": "gs://challenge-globant-bucket/departments.avro"
+    }
+
+## DELETE ROW FROM A TABLE
+To delete a single row from a TABLE, method = 'DELETE'
+
+        /deleteRow/departments
+        /deleteRow/jobs
+        /deleteRow/hired_employees
+        
+Then indicate the 'id' you want to delete from the table        
+        
+    {
+        "id":1234
+    }
+        
+You will receive a JSON response indicating when the row has been deleted
+
+For example:
+
+    {
+        "From table": "departments",
+        "Message": "Eliminated",
+        "id": 13
+    }
+    
+## DELETE A TABLE
+To truncate an entire table, method = 'DELETE'
+
+        /deleteTable/departments
+        /deleteTable/jobs
+        /deleteTable/hired_employees
+        
+You will receive a JSON response indicating the data from the table has been deleted
+
+For example:
+
+    {
+        "Message": "The data has been eliminated",
+        "From table": "departments"
     }
