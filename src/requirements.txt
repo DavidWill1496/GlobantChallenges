@@ -9,6 +9,5 @@ google-cloud-storage==2.7.0
 ipython==8.10.0
 wheel==0.38.4
 pandas-schema==0.3.6
-pandera==0-13-4
 pandasql==0.7.3
 SQLAlchemy==1.4.46
