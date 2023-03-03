@@ -9,7 +9,7 @@ Create Bigquerytables with the endpoint createTables, method = 'GET'
     /createTable/jobs/
     /createTable/hired_employees/
      
-## - INSERT FROM CSV
+## - INSERT FROM CSV FILE
 INSERT the tables from CSV format , method = 'POST'
 
     /insertFromCsv/
@@ -28,7 +28,7 @@ The names of the files will be: departments.csv, jobs.csv and hired_employees.cs
 
 All the registers that don't fulfill the requirements (Nulls or Empty) will not be inserted but will be printed on console
 
-## - INSERT FROM JSON
+## - INSERT ROW FROM JSON
 Insert single registers from a json for each table, method = 'POST'
 
 To insert a new department
@@ -86,4 +86,38 @@ And you will receive the information in a JSON like this:
         "id": 1234,
         "job_id": 147,
         "name": "Allys D'Enrico"
-}
+    }
+
+## CREATE A BACKUP TABLE IN AVRO FORMAT
+To create a backup in .avro format in Google Cloud Storage, method = 'GET'
+
+        /createBackup/departments/
+        /createBackup/jobs/
+        /createBackup/hired_employees/
+        
+You will receive a JSON response indicating when it's done, the name of the table and the path of the .avro file
+
+For example:
+
+    {
+        "Message": "Backup .AVRO created for table",
+        "Table": "departments",
+        "Created_at": "gs://challenge-globant-bucket/departments.avro"
+    }
+    
+## RESTORE A TABLE FROM BACKUP
+To restore a table from the latest backup in Google Storage, use the following endpoints: , method = 'GET'
+
+        /restoreFromBackup/departments/
+        /restoreFromBackup/jobs/
+        /restoreFromBackup/hired_employees/
+        
+You will receive a JSON response indicating when it's done, the name of the table and the path from where the backup was taken
+
+For example:
+
+    {
+        "Message": "Table restored from the backup",
+        "Table": "departments",
+        "Restored from": "gs://challenge-globant-bucket/departments.avro"
+    }
