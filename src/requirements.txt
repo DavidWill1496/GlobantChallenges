@@ -11,3 +11,4 @@ wheel==0.38.4
 pandas-schema==0.3.6
 pandasql==0.7.3
 SQLAlchemy==1.4.46
+db-types
