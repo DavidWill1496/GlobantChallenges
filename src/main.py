@@ -342,7 +342,6 @@ def insertFromCsv():
         return jsonify({'Message': "Error while inserting rows"})
 
 def createDatasetBQ(dataset):
-    client = bigquery.Client(credentials=credentials, project=project_id)
     dataset_ref = client.dataset(dataset)
     try:
         dataset = client.get_dataset(dataset_ref)
@@ -355,7 +354,6 @@ def createDatasetBQ(dataset):
 
 
 def createTableBQ(schemaTable, dataset, table_id):
-    client = bigquery.Client(credentials=credentials, project=project_id)
     dataset_ref = client.dataset(dataset)
     table_ref = dataset_ref.table(table_id)
     try:
