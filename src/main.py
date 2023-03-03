@@ -187,8 +187,9 @@ def getRequirementOne():
         dfReqOne = reqChallengeTwo()
         print(dfReqOne)
         dfReqOne.to_html('output1.html')
-        webbrowser.open('output1.html') 
-        return "Requirement 1 succedded printed in console and web browser"
+        webbrowser.open('output1.html')
+        dfJson = dfReqOne.to_json(orient ='records')
+        return dfJson
     except Exception as ex:
         print(Exception, ex)
         return jsonify({'Message': "Error"})
@@ -211,9 +212,11 @@ def getRequirementTwo():
         print(mean)
         dfReq2 = dfOrdered[dfOrdered.hired > mean] # Select only the rows that fulfill the condition for column 'hired'
         print(dfReq2)
+ 
         dfReq2.to_html('output2.html')
-        webbrowser.open('output2.html') 
-        return ("The mean of employees hired in 2021 for all the departments was {} and the dataframe was printed in console and on the web browser".format(mean))
+        webbrowser.open('output2.html')
+        dfJson = dfReq2.to_json(orient ='records')
+        return dfJson
     except Exception as ex:
         print(Exception, ex)
         return jsonify({'Message': "Error"})
