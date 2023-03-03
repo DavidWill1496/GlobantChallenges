@@ -1,5 +1,7 @@
 # GlobantChallenges
-Rest API developed for the Globant challenge
+Rest API developed for the Globant challenge, use every endpoint after the following URL
+
+    https://api-rest-globant-cdxvks5gpq-rj.a.run.app
 
 ## Usage
 ## - CREATE 
@@ -162,3 +164,17 @@ For example:
         "Message": "The data has been eliminated",
         "From table": "departments"
     }
+
+## CHALLENGE #2 Requirement 1
+Process the 1st requirement of the Challenge 2, method = 'GET'
+
+    /Challenge2/Requirement1
+        
+You will receive a HTML showing the table
+
+## CHALLENGE #2 Requirement 2
+Process the 2nd requirement of the Challenge 2, method = 'GET'
+
+    /Challenge2/Requirement2
+        
+You will receive a HTML showing the table
