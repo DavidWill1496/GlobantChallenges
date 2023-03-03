@@ -1,5 +1,7 @@
 # GlobantChallenges
-Rest API developed for the Globant challenge, use every endpoint after the following URL
+Rest API in Python developed for the Globant challenge, using GCP tools and Dockerfile for package deployment
+
+Use every endpoint after the following URL
 
     https://api-rest-globant-cdxvks5gpq-rj.a.run.app
 
