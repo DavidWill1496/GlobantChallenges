@@ -4,6 +4,10 @@ Rest API developed for the Globant challenge, use every endpoint after the follo
     https://api-rest-globant-cdxvks5gpq-rj.a.run.app
 
 ## Usage
+Use a client for API, and use the methods according to the task, for this case, it was tested on the extension Thunder Client in Visual Studio Code and online with:
+
+    https://reqbin.com/
+
 ## - CREATE 
 Create Bigquerytables with the endpoint createTables, method = 'GET'
 
@@ -13,6 +17,8 @@ Create Bigquerytables with the endpoint createTables, method = 'GET'
      
 ## - INSERT FROM CSV FILE
 INSERT the tables from CSV format , method = 'POST'
+
+IMPORTANT!! the table of destination must be created, refer to the CREATE section
 
     /insertFromCsv
      
